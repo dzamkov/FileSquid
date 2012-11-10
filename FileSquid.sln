@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSquid", "FileSquid.csproj", "{6D11F47B-C107-43DD-9E51-D878D4275003}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FileSquid", "FileSquid.fsproj", "{B7A14A75-C30E-400C-A895-815FE842BB34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6D11F47B-C107-43DD-9E51-D878D4275003}.Debug|x86.ActiveCfg = Debug|x86
-		{6D11F47B-C107-43DD-9E51-D878D4275003}.Debug|x86.Build.0 = Debug|x86
-		{6D11F47B-C107-43DD-9E51-D878D4275003}.Release|x86.ActiveCfg = Release|x86
-		{6D11F47B-C107-43DD-9E51-D878D4275003}.Release|x86.Build.0 = Release|x86
+		{B7A14A75-C30E-400C-A895-815FE842BB34}.Debug|x86.ActiveCfg = Debug|x86
+		{B7A14A75-C30E-400C-A895-815FE842BB34}.Debug|x86.Build.0 = Debug|x86
+		{B7A14A75-C30E-400C-A895-815FE842BB34}.Release|x86.ActiveCfg = Release|x86
+		{B7A14A75-C30E-400C-A895-815FE842BB34}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
