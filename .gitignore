@@ -1,0 +1,9 @@
+bin
+obj
+Debug
+Release
+*.suo
+*.ncb
+*.user
+*.userprefs
+*.pidb
