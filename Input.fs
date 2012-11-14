@@ -10,10 +10,10 @@ type Input<'a, 'b> = Dictionary<'a, 'b list>
 module Input =
     
     /// Creates an input by applying a pattern to all objects in a given sequence.
-    let create (domain : Domain<'a>) (apply : Pattern.Apply<'b, 'a>) (map : 'c -> 'b) (objs : seq<'c>) =
+    let create (domain : Domain<'a>) (pattern : Pattern<'a, 'b>) (map : 'c -> 'b) (objs : seq<'c>) =
         let input = Dictionary<'c, 'a list> ()
         for obj in objs do
             let value = map obj
-            let matches = apply value [] domain.Empty
+            let matches = pattern.Match value [] domain.Empty
             if not (matches.IsEmpty) then input.Add (obj, matches)
         input : Input<'c, 'a>

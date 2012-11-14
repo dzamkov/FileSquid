@@ -2,13 +2,12 @@
 
 open System
 open FileSquid.Pattern
-open FileSquid.Pattern.String
 
 let domain = ArrayDomain ()
 let str1 = domain.Expand ()
 let str2 = domain.Expand ()
 
-let pattern = concat [var str1; lit "."; var str2; lit ".mp3"]
+let pattern = concat [str1; literal "."; str2; literal ".mp3"]
 
 let objs = [ "01.Take Five.mp3"
              "02.I'm In A Dancing Mood.mp3"
@@ -25,6 +24,6 @@ let objs = [ "01.Take Five.mp3"
              "Folder.jpg"
              "TextFileThatIsntSupposedToBeThere.txt" ]
 
-let input = Input.create domain (String.apply pattern) id objs
+let input = Input.create domain pattern id objs
 
 Console.ReadKey () |> ignore

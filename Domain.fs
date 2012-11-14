@@ -1,16 +1,5 @@
 ﻿namespace FileSquid
 
-/// A reference to a typed variable value within a structure.
-type [<AbstractClass>] Variable<'a, 'b when 'b : equality> () =
-
-    /// Gets the value for this variable within the given structure, or None
-    /// if it is not set.
-    abstract Get : 'a -> 'b option
-
-    /// Sets the value for this variable within the given structure, prepending the
-    /// modified structure to the given list.
-    abstract Set : 'b -> 'a list -> 'a  -> 'a list
-
 /// Describes a structure that can hold variables.
 type [<AbstractClass>] Domain<'a> () =
 
@@ -32,11 +21,11 @@ type ArrayDomain () =
 /// A reference to a variable within an array structure.
 and ArrayVariable<'a when 'a : equality> (index : int) =
     inherit Variable<obj[], 'a> ()
-    override this.Get array = 
+    override this.Evaluate array = 
         match array.[index] with
         | null -> None
         | value -> Some (value :?> 'a)
-    override this.Set value accum array =
+    override this.Match value accum array =
         match array.[index] with
         | null ->
             let nArray = Array.copy array
