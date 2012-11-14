@@ -14,14 +14,14 @@ type [<AbstractClass>] Variable<'a, 'b when 'b : equality> () =
 /// Describes a structure that can hold variables.
 type [<AbstractClass>] Domain<'a> () =
 
-    /// Creates a new empty structure.
-    abstract Create : unit -> 'a
+    /// Gets an empty structure with no values set.
+    abstract Empty : 'a
 
 /// A domain for an array structure.
 type ArrayDomain () =
     inherit Domain<obj[]> ()
     let mutable size = 0
-    override this.Create () = Array.create size null
+    override this.Empty = Array.create size null
 
     /// Expands this domain by introducing a new variable.
     member this.Expand () = 

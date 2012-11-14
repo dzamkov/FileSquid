@@ -45,6 +45,8 @@
     <Compile Include="String.fs" />
     <Compile Include="Domain.fs" />
     <Compile Include="Pattern.fs" />
+    <Compile Include="Input.fs" />
+    <Compile Include="Refine.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />

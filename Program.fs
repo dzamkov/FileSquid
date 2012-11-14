@@ -1,16 +1,30 @@
 ﻿module FileSquid.Program
 
 open System
+open FileSquid.Pattern
 open FileSquid.Pattern.String
 
 let domain = ArrayDomain ()
 let str1 = domain.Expand ()
 let str2 = domain.Expand ()
-let str3 = domain.Expand ()
 
-let pattern = concat [lit "root/"; var str1; lit "/"; var str2; lit "-"; var str3; lit ".mp3"]
-let res1 = pattern.Apply "root/bleh/blurg-blar.mp3" [] (domain.Create ())
-let res2 = pattern.Apply "root/ab/cd-ef.mp3" [] (domain.Create ())
-let res3 = pattern.Apply "test.text" [] (domain.Create ())
-let res4 = pattern.Apply "root/abl/et/fs-se.mp3" [] (domain.Create ())
+let pattern = concat [var str1; lit "."; var str2; lit ".mp3"]
+
+let objs = [ "01.Take Five.mp3"
+             "02.I'm In A Dancing Mood.mp3"
+             "03.In Your Own Sweet Way.mp3"
+             "04.Camptown Races.mp3"
+             "05.The Duke (Live).mp3"
+             "06.It's A Raggy Waltz.mp3"
+             "07.Bossa Nova U. S. A..mp3"
+             "08.Trolley Song.mp3"
+             "09.Unsquare Dance.mp3"
+             "10.Blue Rondo A La Turk.mp3"
+             "11.Theme From Mr. Broadway.mp3"
+             "AlbumArtSmall.jpg"
+             "Folder.jpg"
+             "TextFileThatIsntSupposedToBeThere.txt" ]
+
+let input = Input.create domain (String.apply pattern) id objs
+
 Console.ReadKey () |> ignore
