@@ -5,9 +5,7 @@ open FileSquid.Pattern
 
 let domain = ArrayDomain ()
 let str1 = domain.Expand ()
-let str2 = domain.Expand ()
-
-let pattern = concat [str1; literal "."; str2; literal ".mp3"]
+let pattern = str1
 
 let objs = [ "01.Take Five.mp3"
              "02.I'm In A Dancing Mood.mp3"
@@ -25,5 +23,11 @@ let objs = [ "01.Take Five.mp3"
              "TextFileThatIsntSupposedToBeThere.txt" ]
 
 let input = Input.create domain pattern id objs
+let tree = SuffixTree.createGeneralized Alphabet.ascii (objs |> Seq.map (fun obj -> (obj, obj :> seq<char>)))
+let test1 = SuffixTree.contains tree "square"
+let test2 = SuffixTree.contains tree "(Live)"
+let test3 = SuffixTree.contains tree ".jpg"
+let test4 = SuffixTree.contains tree "I'm In"
+let test5 = SuffixTree.contains tree "nope"
 
 Console.ReadKey () |> ignore

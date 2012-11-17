@@ -3,7 +3,7 @@
 open System
 open System.Collections.Generic
 open System.Text
-open FileSquid.Extensions
+open FileSquid.Util
 
 /// Describes the general form of a value.
 type Pattern =

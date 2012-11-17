@@ -42,7 +42,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="String.fs" />
+    <Compile Include="Util.fs" />
+    <Compile Include="Alphabet.fs" />
+    <Compile Include="SuffixTree.fs" />
     <Compile Include="Pattern.fs" />
     <Compile Include="Domain.fs" />
     <Compile Include="Input.fs" />
