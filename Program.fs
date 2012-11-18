@@ -23,11 +23,15 @@ let objs = [ "01.Take Five.mp3"
              "TextFileThatIsntSupposedToBeThere.txt" ]
 
 let input = Input.create domain pattern id objs
-let tree = SuffixTree.createGeneralized Alphabet.ascii (objs |> Seq.map (fun obj -> (obj, obj :> seq<char>)))
-let test1 = SuffixTree.contains tree "square"
-let test2 = SuffixTree.contains tree "(Live)"
-let test3 = SuffixTree.contains tree ".jpg"
-let test4 = SuffixTree.contains tree "I'm In"
-let test5 = SuffixTree.contains tree "nope"
+let mutable trie = Trie<char, int> (Alphabet.ascii, 0)
+do for string in objs do trie <- Trie.mapForSubstrings ((+) 1) string trie
+let items = trie |> Seq.map (fun kvp -> String kvp.Key, kvp.Value) |> Seq.sortBy (fun (_, n) -> -n) |> Seq.toArray
+let test1 = trie.["(Live)"]
+let test2 = trie.[""]
+let test3 = trie.["Ar"]
+let test4 = trie.["ce"]
+let test5 = trie.["bleh"]
+let test6 = trie.["."]
+let test7 = trie.[".mp3"]
 
 Console.ReadKey () |> ignore
